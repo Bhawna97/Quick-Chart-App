@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="QuickChartStyle.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="QuickChart.js"></script>
+</head>
+<body class="bodyColor" onload="onLoadRegisterPage()">
+    <h1> <img class="image" src="images/register.png" alt="Register Icon"/>Register Here</h1>
+    <div class="firstPanel" style="padding-top: 20px">
+        <label id="registerMessage" class="errorMessage"></label><br><br>
+
+        <label class="commonLabel">First Name
+            <span id="rPFnLabel" class="redColor"> *</span>
+        </label>
+        <label for="firstName"></label><input id="firstName" type="text" class="commonInput" placeholder="First Name" onblur="onBlurNameField()"><br><br><br>
+
+        <label class="commonLabel">Last Name
+            <span id="rPLnLabel" class="redColor"> *</span>
+        </label>
+        <label for="lastName"></label><input id="lastName" type="text" class="commonInput" placeholder="Last Name" onblur="onBlurNameField()"><br><br><br>
+
+        <label class="commonLabel" style="left: 150px">User Name
+            <span id="rPUnLabel" class="redColor"> *</span>
+        </label>
+        <label for="userName"></label><input id="userName" type="text" class="commonInput" placeholder="User Name" onblur="onBlurRegisterField()"
+                                             style="left: 150px">
+        <div class="container suggestUsernameContainer" id="suggestContainer">
+            <label id="suggestUsername"></label><br><br>
+            <button id="username1" class="suggestContainerButton" onclick="onClickUsername(this.id)"></button>
+            <button id="username2" class="suggestContainerButton" onclick="onClickUsername(this.id)"></button>
+            <button id="username3" class="suggestContainerButton" onclick="onClickUsername(this.id)"></button>
+            <button id="sCancel" class="suggestContainerButton" onclick="onClickSuggestCancel()" style="top: 5px">Cancel</button>
+        </div><br><br>
+
+        <label id="passwordMessage" class="redColor" style="position: relative; left: 150px"></label><br>
+        <label class="commonLabel" style="left: 155px">Password
+            <span id="rPPwLabel" class="redColor"> *</span>
+        </label>
+        <label for="password"></label><input id="password" type="password" class="commonInput" placeholder="Password" onblur="onBlurRegisterField()"
+                                             style="left: 155px"><br><br>
+        <div>
+            <input type="button" id="register" class="commonButton" value="Register" onclick="onClickRegisterButton()">
+            <input type="button" id="cancel" class="commonButton" value="Cancel" style="left: 15px" onclick="onClickCancel()">
+        </div>
+        <label class="requiredMsg" style="padding-top: 150px;">Fields with <span class="redColor" style="font-size: 20px; font-weight: bold;">*</span> mark - Required</label>
+    </div>
+    <div class="loader">
+        <div class="loading">
+        </div>
+    </div>
+</body>
+</html>

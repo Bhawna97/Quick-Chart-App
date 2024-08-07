@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginPage</title>
+    <link rel="stylesheet" href="QuickChartStyle.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="QuickChart.js"></script>
+</head>
+<body class="bodyColor" onload="onLoadLoginPage()">
+    <h1> <img class="image" src="images/login.png"/>Login Here</h1>
+    <div class="firstPanel" style="padding-top: 25px">
+        <label id="loginMessage" class="errorMessage"></label><br><br>
+
+        <label class="commonLabel">User Name</label>
+        <input id="lUserName" type="text" class="commonInput" placeholder="User Name" onblur="onBlurLunField()"><br><br><br>
+
+        <label class="commonLabel">Password</label>
+        <input id="lPassword" type="password" class="commonInput" placeholder="Password" onblur="onBlurLpField()" style="position: relative; left: 5px"><br><br>
+
+        <div>
+            <input type="button" id="login" class="commonButton" value="Login" onclick="onClickLoginButton()">
+            <input type="button" id="lCancel" class="commonButton" value="Cancel" style="left: 15px" onclick="onClickCancel()">
+        </div>
+    </div>
+    <div class="loader">
+        <div class="loading">
+        </div>
+    </div>
+</body>
+</html>

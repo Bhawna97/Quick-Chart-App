@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Patient Chart</title>
+    <link rel="stylesheet" href="QuickChartStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body class="bodyColor" onload="onloadEditChart()">
+    <nav class="navbar navbar-expand-sm navbar-custom">
+        <div style="padding-left: 10px">
+            <label id="dateTime" style="font-size: 18px;"></label>
+        </div>
+        <span class="ms-auto chartListHeader">
+            <label id="pName"></label>
+            <label id="pAge" style="position: relative; left: 5px"></label>
+            <label id="pGender" style="position: relative; left: 10px"></label>
+        </span>
+        <ul class="navbar-nav ms-auto">
+            <li>
+                <label id="chartName" class="chartName"></label>
+            </li>
+            <li class="nav-item">
+                <a class="navbarItem" href="index.html">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="firstPanel">
+        <label id="chartMessage" class="errorMessage" style="position: relative; top: 15px"></label><br><br>
+
+        <label class="commonLabel" style="right: 55px; padding-left: 95px;">Systolic Blood pressure
+            <span id="systolicBPLabel" class="redColor"> *</span>
+        </label>
+        <label for="patientSystolicBP"></label><input id="patientSystolicBP" type="text" class="commonInput" placeholder="Blood Pressure(Systolic pressure)"
+                                                      onblur="onBlurChartField()" style="right: 60px" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <label id="SPUnit" class="unitLabel" style="right: 60px">mmHg</label><br><br><br>
+
+        <label class="commonLabel" style="right: 62px; padding-left: 95px;">Diastolic Blood pressure
+            <span id="diastolicBPLabel" class="redColor"> *</span>
+        </label>
+        <label for="patientDiastolicBP"></label><input id="patientDiastolicBP" type="text" class="commonInput" placeholder="Blood Pressure(Diastolic pressure)"
+                                                       onblur="onBlurChartField()" style="right: 65px" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <label id="DPUnit" class="unitLabel" style="right: 65px">mmHg</label><br><br><br>
+
+        <label class="commonLabel" style="left: 15px; padding-left: 90px">Respiration Rate
+            <span id="respirationLabel" class="redColor"> *</span>
+        </label>
+        <label for="patientRespiration"></label><input id="patientRespiration" type="text" class="commonInput" placeholder="Respiration Rate"
+                                                       onblur="onBlurChartField()" style="left: 15px" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <label id="respirationUnit" class="unitLabel" style="left: 15px">breaths per minute</label><br><br><br>
+
+        <label class="commonLabel" style="left: 40px; padding-left: 75px">Pulse Rate
+            <span id="pulseLabel" class="redColor"> *</span>
+        </label>
+        <label for="patientPulse"></label><input id="patientPulse" type="text" class="commonInput" placeholder="Pulse Rate"
+                                                 onblur="onBlurChartField()" style="left: 42px" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <label id="pulseUnit" class="unitLabel" style="left: 42px">beats per minute</label><br><br><br>
+
+        <label class="commonLabel" style="left: 30px; padding-left: 25px">Temperature
+            <span id="temperatureLabel" class="redColor"> *</span>
+        </label>
+        <label for="patientTemperature"></label><input id="patientTemperature" type="text" class="commonInput" placeholder="Temperature"
+                                                       onblur="onBlurChartField()" style="left: 30px" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <label id="temperatureUnit" class="unitLabel" style="left: 30px">degrees F</label><br><br>
+
+        <div style="position: relative; bottom: 20px;">
+            <input type="button" id="updateChart" class="commonButton" value="Update" onclick="ChartSubmitButton(this.id)">
+            <input type="button" id="close" class="commonButton" value="Close" style="left: 15px" onclick="EditChartCloseButton()">
+        </div>
+        <label class="requiredMsg" style="padding-top: 65px;">Fields with <span class="redColor" style="font-size: 20px; font-weight: bold;">*</span> mark - Required</label>
+    </div>
+    <div class="loader">
+        <div class="loading">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="QuickChart.js"></script>
+</body>
+</html>
