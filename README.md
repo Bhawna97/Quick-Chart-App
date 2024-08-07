@@ -2,8 +2,6 @@
 
 When a patient visits to the hospital, the first procedure he or she goes through is the basic body checkup which includes vital measurements like Blood Presure, Pulse Rate, Boddy Temperature etc. Therefore my application provides the plateform to keep the record of these vital measurements of each and every patient with date and time.
 
-Jira Link - https://jira2.cerner.com/browse/DEVACDMY-37471
-
 ## Tech Stack
 
 **Client:** HTML, CSS, Bootstrap, JavaScript, axios
