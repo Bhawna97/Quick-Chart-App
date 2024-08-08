@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Patient Chart</title>
+    <link rel="stylesheet" href="QuickChartStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body class="bodyColor" onload="onloadViewChartPage()">
+    <nav class="navbar navbar-expand-sm navbar-custom">
+        <div style="padding-left: 10px">
+            <label id="dateTime" style="font-size: 18px;"></label>
+        </div>
+        <span class="ms-auto chartListHeader">
+            <label id="pName"></label>
+            <label id="pAge" style="position: relative; left: 5px"></label>
+            <label id="pGender" style="position: relative; left: 10px"></label>
+        </span>
+        <ul class="navbar-nav ms-auto">
+            <li>
+                <label id="chartName" class="chartName"></label>
+            </li>
+            <li class="nav-item">
+                <a class="navbarItem" href="index.html">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="firstPanel" style="padding-top: 15px">
+        <label id="viewChartMessage" class="errorMessage"></label>
+    </div>
+    <div class="row">
+        <div class="column" style="padding-left: 40px">
+            <label class="commonLabel">Date & Time</label><br>
+            <label id="chartDateTime" class="chartValue"></label><br>
+
+            <label class="commonLabel">Systolic Blood pressure</label><br>
+            <label id="systolicBP" class="chartValue"></label><br>
+
+            <label class="commonLabel">Diastolic Blood Pressure</label><br>
+            <label id="diastolicBP" class="chartValue"></label><br>
+        </div>
+        <div class="column" style="padding-left: 40px">
+            <label class="commonLabel">Respiration Rate</label><br>
+            <label id="respirationRate" class="chartValue"></label><br>
+
+            <label class="commonLabel">Pulse Rate</label><br>
+            <label id="pulseRate" class="chartValue"></label><br>
+
+            <label class="commonLabel">Temperature</label><br>
+            <label id="temperature" class="chartValue"></label><br>
+        </div>
+    </div>
+    <div style="float: right; position: relative; bottom: 30px; right: 25px">
+        <input type="button" id="editChart" class="commonButton" value="Edit" onclick="onclickEditButton()">
+        <input type="button" id="close" class="commonButton" value="Close" style="left: 15px" onclick="AddChartCloseButton()">
+    </div>
+    <div class="loader">
+        <div class="loading">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="QuickChart.js"></script>
+</body>
+</html>
